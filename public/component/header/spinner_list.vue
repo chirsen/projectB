@@ -1,7 +1,7 @@
 <template>
 	<div class="spinner" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave">
 		<a class="title" v-bind:style="styleObj" v-bind:href="itemData.url">{{itemData.name}}</a>
-		<ul v-if="itemData.ls.length !== 0 && show" v-on:mouseover.prevent="hover">
+		<ul v-if="itemData.ls.length !== 0 && show" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leaveUl">
 			<li v-for="li in itemData.ls">
 				<a v-bind:href="li.subUrl">{{li.subName}}</a>
 			</li>
@@ -25,16 +25,28 @@
 			hover:function(e){
 				this.show = true;
 				this.styleObj.color = "#555";
+				if(this.timmer){
+					clearTimeout(this.timmer);
+				}
 			},
 			leave:function(e){
-				this.styleObj.color = "#aaa";
+				if(this.timmer){
+					clearTimeout(this.timmer);
+				}
+				let that = this;
+				this.timmer = setTimeout(function(){
+					that.styleObj.color = "#aaa";
+					that.show = false;
+				}, 50);
+			},
+			leaveUl:function(e){
 				if(this.timmer){
 					clearTimeout(this.timmer);
 				}
 				let that = this;
 				this.timmer = setTimeout(function(){
 					that.show = false;
-				}, 500);
+				}, 50);
 			}
 		}
 	}
@@ -58,11 +70,16 @@
 		position: absolute;
 		top: 100%;
 		border-left: solid 2px #aaa;
+		width:120px;
 	}
 	li{
 		padding: 0px;
 		margin: 0px;
 		padding: 5px 20px 0px 20px;
+	}
+
+	li:hover{
+		background-color:#eee;
 	}
 
 	li:a{

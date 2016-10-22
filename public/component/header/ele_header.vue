@@ -41,7 +41,7 @@
     }
     
     .header-wrap {
-        margin: 5px auto;
+        margin: 0px auto;
         padding: 0px 10px;
         height: 60px;
 
@@ -61,5 +61,10 @@
         }
     }
 
+     @media screen and (max-width: 440px){
+        .header-wrap{
+            width: 440px;
+        }
+    }
 
 </style>

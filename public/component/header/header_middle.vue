@@ -28,7 +28,7 @@
 
     img{
         height: 40px;
-        align-self: center;
+        align-self: flex-end;
         display: none;
     }
 

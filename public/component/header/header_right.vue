@@ -5,7 +5,8 @@
 				<spinner :item-data="item"></spinner>
 			</li>
 		</ul>
-		<a v-bind:style="styleObj" class="help" v-on:mouseover.prevent="hover">关于</a>
+		<a v-bind:style="styleObj" class="help" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave">关于</a>
+		<a v-bind:style="styleObj" class="help-icon" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave"></a>
 	</div>
 </template>
 <script>
@@ -68,7 +69,7 @@
 	.right{
 		display: flex;
         flex-direction: row;
-        justify-content: space-between;    
+        justify-content: flex-end;    
         align-items: center;
         flex: 1 1 50%;
 
@@ -79,7 +80,7 @@
         flex-direction: row;
         justify-content: flex-end;
         align-items: flex-end;
-        flex: 2 2 80%;
+        flex: 1 1 85%;
         height: 60px;
 	}
 
@@ -92,10 +93,31 @@
     }
 
 	.help{
-         flex: 1 1 20%;
+         flex: 6 6 15%;
          align-self: flex-end;
          padding: 0px 0px 10px 20px;
          font-size: 16px;
          font-weight: 400;
+	}
+	
+	.help-icon{
+		display:none;
+	}
+
+	@media screen and (max-width: 750px){
+		ul{
+			display:none;
+		}
+		.help{
+			display:none;
+		}
+
+		.help-icon{
+			display:block;
+		}
+		.help-icon:after{
+			color:#aaa;
+			content: "\ea09";
+		}
 	}
 </style>
