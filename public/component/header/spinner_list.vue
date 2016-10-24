@@ -71,6 +71,7 @@
 		top: 100%;
 		border-left: solid 2px #aaa;
 		width:100px;
+		background-color: white;
 	}
 	li{
 		padding: 0px;

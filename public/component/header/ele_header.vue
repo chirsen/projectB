@@ -30,13 +30,15 @@
 
 <style scoped>
     .header {
-        background-color: "#E2E2E2";
-        position: relative;
+        background-color: white;
+        position: fixed;
+        width: 100%;
         border-bottom: solid 1px #eee;
-
+        top: 0px;
         display: flex;
         flex-direction:row;
-        justify-content: space-between;
+        justify-content: space-around;
+        z-index: 1000;
     }
     
     .header-wrap {
