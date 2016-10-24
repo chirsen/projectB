@@ -65,6 +65,9 @@
     .left{
         flex: 3 1 70%;
         order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .right{
