@@ -10,7 +10,7 @@
 	</div>
 </template>
 <script>
-	import spinner_list from "./spinner_list.vue"
+	var spinner_list = require("./spinner_list.vue");
 
     export default {
         data: function() {

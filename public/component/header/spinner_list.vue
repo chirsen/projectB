@@ -66,16 +66,16 @@
 	}
 	ul{
 		padding: 10px 0px;
-		margin-left: -20px;
+		margin-left: -10px;
 		position: absolute;
 		top: 100%;
 		border-left: solid 2px #aaa;
-		width:120px;
+		width:100px;
 	}
 	li{
 		padding: 0px;
 		margin: 0px;
-		padding: 5px 20px 0px 20px;
+		padding: 5px 20px 0px 10px;
 	}
 
 	li:hover{

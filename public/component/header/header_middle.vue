@@ -1,11 +1,11 @@
 <template>
     <div class="middle">
         <img v-bind:src="img" alt="">
-        <span>一段介绍</span>
+        <span>一段介</span>
     </div>
 </template>
 <script>
-    import imgUrl from "../../images/page.png"
+    var imgUrl = require("../../images/page.png");
 
     export default {
         data: function() {

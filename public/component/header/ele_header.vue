@@ -9,9 +9,9 @@
 </template>
 
 <script>
-    import header_left from "./header_left.vue"
-    import header_right from "./header_right.vue"
-    import header_middle from "./header_middle.vue"
+    var header_left = require("./header_left.vue");
+    var header_right = require("./header_right.vue");
+    var header_middle = require("./header_middle.vue");
 
     export default {
         data() {
@@ -30,7 +30,6 @@
 
 <style scoped>
     .header {
-        width: 100%;
         background-color: "#E2E2E2";
         position: relative;
         border-bottom: solid 1px #eee;
@@ -55,13 +54,25 @@
         flex-direction: row;
     }
 
-    @media screen and (max-width: 1240px){
+    @media screen and (max-width: 1240px) and (min-width: 941px){
         .header-wrap{
             flex-basis: 940px;
         }
     }
 
-     @media screen and (max-width: 440px){
+    @media screen and (max-width: 940px) and (min-width: 741px){
+        .header-wrap{
+            flex-basis: 740px;
+        }
+    }
+
+    @media screen and (max-width: 740px) and (min-width: 441px){
+        .header-wrap{
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 440px){
         .header-wrap{
             width: 440px;
         }
