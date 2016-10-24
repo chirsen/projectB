@@ -55,7 +55,6 @@
 	}
 	a{
 		display: inline-flex;
-		width: 280px;
 		word-wrap: break-word;
 		color: #888;
 		display: flex;

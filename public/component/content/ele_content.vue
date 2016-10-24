@@ -41,6 +41,7 @@
 
 <style scoped>
     .content{
+        margin-top: 61px;
         display:flex;
         flex-direction: column;
         justify-content: center;
