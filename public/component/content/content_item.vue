@@ -53,11 +53,23 @@
 	.date{
 		margin-right: 40px;
 	}
+	.date:before{
+		content: '\e953';
+		margin-right: 5px;
+	}
 	.num{
 		margin-right: 40px;
 	}
+	.num:before{
+		content: '\e9cf';
+		margin-right: 5px;
+	}
 	.folder{
 		margin-right: 40px;
+	}
+	.folder:before{
+		content: '\e930';
+		margin-right: 5px;
 	}
 	a{
 		color: #aaa;
