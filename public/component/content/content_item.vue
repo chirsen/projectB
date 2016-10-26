@@ -61,7 +61,7 @@
 		margin-right: 40px;
 	}
 	.num:before{
-		content: '\e9cf';
+		content: '\e9ce';
 		margin-right: 5px;
 	}
 	.folder{

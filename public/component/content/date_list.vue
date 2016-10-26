@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h2>排行榜</h2>
+		<h2>日历</h2>
 		<ul>
 			<li v-for="item in dateList">
 				<a v-on:click.prevent="click" v-bind:href="item.url"><span>{{item.date}}</span><span>{{item.num}}</span></a>
