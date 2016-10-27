@@ -1,14 +1,17 @@
 <template>
 	<div class="spinner" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave">
-		<a class="title" v-bind:style="styleObj" v-bind:href="itemData.url">{{itemData.name}}</a>
+		<a class="title" v-on:click.prevent="urlClick" v-bind:style="styleObj" v-bind:href="itemData.url">{{itemData.name}}</a>
 		<ul v-if="itemData.ls.length !== 0 && show" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leaveUl">
-			<li v-for="li in itemData.ls">
-				<a v-bind:href="li.subUrl">{{li.subName}}</a>
+			<li v-for="li in itemData.ls" v-on:click.prevent="urlClick">
+				<a v-bind:href="li.subUrl"  >{{li.subName}}</a>
 			</li>
 		</ul>
 	</div>
 </template>
 <script>
+
+	import Bus from '../../js/bus.js'
+
 	export default{
 		data:function(){
 			return {
@@ -47,6 +50,14 @@
 				this.timmer = setTimeout(function(){
 					that.show = false;
 				}, 50);
+			},
+			urlClick:function(e){
+				let target = e.target;
+				if(target.nodeName === 'LI'){
+					target = target.children[0];
+				}
+				let url = target.getAttribute('href');
+				Bus.$emit('rout', url);
 			}
 		}
 	}

@@ -5,12 +5,13 @@
 				<spinner :item-data="item"></spinner>
 			</li>
 		</ul>
-		<a v-bind:style="styleObj" class="help" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave">关于</a>
-		<a v-bind:style="styleObj" class="help-icon" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave"></a>
+		<a v-bind:style="styleObj" v-on:click.prevent="aboutClick" class="help" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave">关于</a>
+		<a v-bind:style="styleObj" class="help-icon" v-on:click.prevent="aboutClick" v-on:mouseover.prevent="hover" v-on:mouseleave.prevent="leave"></a>
 	</div>
 </template>
 <script>
 	var spinner_list = require("./spinner_list.vue");
+    import Bus from '../../js/bus.js';
 
     export default {
         data: function() {
@@ -21,34 +22,34 @@
             	msg:"right",
             	list:[{
             		name:"首页",
-            		url:"#",
+            		url:"/home",
             		ls:[]
             	},{
             		name:"前端",
-            		url:"#",
+            		url:"/front",
             		ls:[{
             			subName:"html",
-            			subUrl:"##"
-            		},{
-            			subName:"js",
-            			subUrl:"##"
+            			subUrl:"/front/html"
             		},{
             			subName:"css",
-            			subUrl:"##"
+            			subUrl:"/front/css"
+            		},{
+            			subName:"js",
+            			subUrl:"/front/js"
             		}]
             	},{
             		name:"node",
-            		url:"#",
+            		url:"/node",
             		ls:[]
             	},{
             		name:"杂烩",
-            		url:"#",
+            		url:"/multi",
             		ls:[{
             			subName:"阅读",
-            			subUrl:"##"
+            			subUrl:"/multi/read"
             		},{
             			subName:"开发工具",
-            			subUrl:"##"
+            			subUrl:"/multi/tools"
             		},]
             	}]
             };
@@ -61,6 +62,9 @@
             },
             leave:function(e){
                 this.styleObj.color = "#aaa";
+            },
+            aboutClick:function(e){
+                Bus.$emit('rout', '/about');
             }
         }
     }
