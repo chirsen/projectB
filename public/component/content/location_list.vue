@@ -2,25 +2,42 @@
 	<div>
 		<ul>
 			<li v-for="item in locationList">
-				<a v-bind:href="item.url">{{item.name}}</a>
+				<a v-bind:href="item.url" v-on:click.prevent="click">{{item.name}}</a>
 			</li>
 		</ul>
 	</div>
 </template>
 <script>
+
+	import Bus from '../../js/bus.js'
+
 	export default{
 		data:function(){
 			return {
-				locationList:[{
+				locationList:[]
+			};
+		},
+		name:"location-list",
+		methods:{
+			click:function(e){
+				let target = e.target;
+				let url = target.getAttribute('href');
+				Bus.$emit('rout', url);
+			}
+		},
+		beforeRouteEnter (to, from, next) {
+            console.log(to.path);
+            next(function(vm){
+
+            	vm.locationList = [{
 					name:"首页",
 					url:"/"
 				},{
 					name:"/前端",
 					url:"/xxx"
-				}]
-			};
-		},
-		name:"location-list"
+				}];
+            });
+        }
 	}
 </script>
 <style scoped>

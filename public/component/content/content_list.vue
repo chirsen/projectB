@@ -37,7 +37,7 @@
 					writeDate:"xxxx-xx-xx",
 					scanNum:"10000",
 					folder:"xx/xx"
-				},,{
+				},{
 					title:"XXXX",
 					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 					writeDate:"xxxx-xx-xx",
@@ -49,7 +49,7 @@
 					writeDate:"xxxx-xx-xx",
 					scanNum:"10000",
 					folder:"xx/xx"
-				},,{
+				},{
 					title:"XXXX",
 					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 					writeDate:"xxxx-xx-xx",
@@ -67,7 +67,25 @@
 		name:"pcontent-list",
 		components:{
 			"content-item":content_item
-		}
+		},
+        beforeRouteEnter (to, from, next) {
+            console.log(to.path);
+            next(function(vm){
+            	vm.list = [{
+					title:"XXXX",
+					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+					writeDate:"xxxx-xx-xx",
+					scanNum:"10000",
+					folder:"xx/xx"
+				},{
+					title:"XXXX",
+					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+					writeDate:"xxxx-xx-xx",
+					scanNum:"10000",
+					folder:"xx/xx"
+				}];
+            });
+        }
 	}
 </script>
 <style scoped>

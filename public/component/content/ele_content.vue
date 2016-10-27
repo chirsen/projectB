@@ -1,41 +1,27 @@
 <template>
   <div class="content">
-      <location-list class="location"></location-list>
+  <router-view class="location" name="location-list"></router-view>
       <div class="content-wrap">
           <div class="left">
-              <content-list></content-list>
-              <pages-list></pages-list>
+              <router-view name="content-list"></router-view>
+              <router-view name="pages-list"></router-view>
           </div>
           <div class="right">
-              <rank-list></rank-list>
-              <date-list></date-list>
+            <router-view name="rank-list"></router-view>
+            <router-view name="date-list"></router-view>
           </div>
       </div>
   </div>
 </template>
 
 <script>
-
-    var location_list = require("./location_list.vue");
-    var content_list = require("./content_list.vue");
-    var rank_list = require("./rank_list.vue");
-    var date_list = require("./date_list.vue");
-    var pages_list = require("./pages_list.vue");
-
     export default {
         data: function(){
             return {
                
             }
         },
-        name: 'ele-content',
-        components:{
-          "location-list": location_list,
-          "content-list": content_list,
-          "pages-list":pages_list,
-          "rank-list":rank_list,
-          "date-list":date_list
-        }
+        name: 'ele-content'
     }
 </script>
 

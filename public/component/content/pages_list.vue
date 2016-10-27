@@ -85,6 +85,12 @@
 				}
 				console.log(this.current);
 			}
+		},
+		beforeRoutEnter(to, from, next){
+			console.log(to.path);
+			next(function(vm){
+				vm.end = 50;
+			});
 		}
 	}
 </script>

@@ -16,7 +16,19 @@
 	export default{
 		data:function(){
 			return {
-				dateList:[{
+				dateList:[]
+			};
+		},
+		name:"date-list",
+		methods:{
+			click:function(e){
+				console.log(e.target.getAttribute("href"));
+			}
+		},
+		beforeRouteEnter (to, from, next) {
+            console.log(to.path);
+            next(function(vm){
+            	vm.dateList = [{
 					date:"xx-xx",
 					url:"xxxx",
 					num:"10"
@@ -25,14 +37,8 @@
 					url:"xxxx",
 					num:"10"
 				}]
-			};
-		},
-		name:"date-list",
-		methods:{
-			click:function(e){
-				console.log(e.target.getAttribute("href"));
-			}
-		}
+            });
+        }
 	}
 </script>
 <style scoped>
