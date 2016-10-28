@@ -1,7 +1,7 @@
 <template>
     <div class="middle">
         <img v-bind:src="img" alt="">
-        <span>一段介啥</span>
+        <span>一段介</span>
     </div>
 </template>
 <script>

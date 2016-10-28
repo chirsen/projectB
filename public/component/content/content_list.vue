@@ -9,7 +9,7 @@
 </template>
 <script>
 	var content_item = require("./content_item.vue");
-
+	var jsonp = require("../../js/jsonp.js");
 	export default{
 		data:function(){	
 			return {
@@ -70,6 +70,17 @@
 		},
         beforeRouteEnter (to, from, next) {
             console.log(to.path);
+            //发出jsonp请求
+            let url = "http://localhost:3000"+to.path;
+            console.log(url);
+            let callbackStr = "fsData" + (new Date()).getTime().toString();
+            let urlData = {
+            	js: callbackStr+"(x)",
+            }
+
+            jsonp(url, urlData, callbackStr, function(json){
+            	console.log(json);
+            });
             next(function(vm){
             	vm.list = [{
 					title:"XXXX",
