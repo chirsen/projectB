@@ -87,7 +87,7 @@
 			}
 		},
 		beforeRoutEnter(to, from, next){
-			console.log(to.path);
+			console.log(to.path+" pages-list");
 			next(function(vm){
 				vm.end = 50;
 			});

@@ -26,7 +26,7 @@
 			}
 		},
 		beforeRouteEnter (to, from, next) {
-            console.log(to.path);
+            console.log(to.path+" dateList");
             next(function(vm){
             	vm.dateList = [{
 					date:"xx-xx",

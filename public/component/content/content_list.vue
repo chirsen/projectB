@@ -69,10 +69,9 @@
 			"content-item":content_item
 		},
         beforeRouteEnter (to, from, next) {
-            console.log(to.path);
+            console.log(to.path+" content_list");
             //发出jsonp请求
             let url = "http://localhost:3000"+to.path;
-            console.log(url);
             let callbackStr = "fsData" + (new Date()).getTime().toString();
             let urlData = {
             	js: callbackStr+"(x)",
@@ -80,22 +79,24 @@
 
             jsonp(url, urlData, callbackStr, function(json){
             	console.log(json);
+            	next(function(vm){
+            		vm.list = json;
+            	});
             });
-            next(function(vm){
-            	vm.list = [{
-					title:"XXXX",
-					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-					writeDate:"xxxx-xx-xx",
-					scanNum:"10000",
-					folder:"xx/xx"
-				},{
-					title:"XXXX",
-					quto:"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-					writeDate:"xxxx-xx-xx",
-					scanNum:"10000",
-					folder:"xx/xx"
-				}];
-            });
+        },
+        watch:{
+        	$route(){
+        		//发出jsonp请求
+	            let url = "http://localhost:3000"+this.$route.path;
+	            let callbackStr = "fsData" + (new Date()).getTime().toString();
+	            let urlData = {
+	            	js: callbackStr+"(x)",
+	            }
+	            var _that = this;
+	            jsonp(url, urlData, callbackStr, function(json){
+	            	_that.list = json;
+	            });
+        	}
         }
 	}
 </script>

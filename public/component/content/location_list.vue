@@ -26,7 +26,7 @@
 			}
 		},
 		beforeRouteEnter (to, from, next) {
-            console.log(to.path);
+            console.log(to.path+" locationList");
             next(function(vm){
 
             	vm.locationList = [{
